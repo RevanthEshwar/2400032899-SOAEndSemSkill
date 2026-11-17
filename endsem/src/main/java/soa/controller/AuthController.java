@@ -1,0 +1,29 @@
+package soa.controller;
+
+import java.util.Map;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+
+import soa.dto.AuthRequest;
+import soa.service.JwtService;
+
+@RestController
+@RequestMapping("/api/auth")
+public class AuthController {
+
+    @Autowired
+    private JwtService jwtService;
+
+    @PostMapping("/token")
+    public Map<String, String> generateToken(
+            @RequestBody AuthRequest request) {
+
+        String token = jwtService.generateToken(
+            request.getUsername(),
+            request.getRole()
+        );
+
+        return Map.of("token", token);
+    }
+}

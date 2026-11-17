@@ -1,0 +1,6 @@
+spring.application.name=endsem
+
+server.port=8080
+
+jwt.secret=Shz86bZ2dDBZksCIreOzvS0jlQzNGBSyd5ik4YyboOQ=
+jwt.expiration=3600
